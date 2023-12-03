@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using UIBase.ViewModels;
 using UIBase.Views;
 
 namespace UIBase;
@@ -45,6 +46,12 @@ public sealed partial class App : Application
 
         // Views
         services.AddSingleton<MainView>();
+
+        // ViewModels
+        services.AddTransient<MainViewModel>();
+        services.AddTransient<LoginControlViewModel>();
+        services.AddTransient<SignUpControlVIewModel>();
+        services.AddTransient<ChangePasswordControlVIewModel>();
 
         return services.BuildServiceProvider();
     }

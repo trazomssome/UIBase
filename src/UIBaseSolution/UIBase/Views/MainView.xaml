@@ -3,17 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UIBase.Views" xmlns:controls="clr-namespace:UIBase.Controls"
+        xmlns:local="clr-namespace:UIBase.Views"
+        xmlns:controls="clr-namespace:UIBase.Controls"
+        xmlns:vm="clr-namespace:UIBase.ViewModels"
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+        Background="{StaticResource ColorPrimary}"
         Title="MainView" Height="450" Width="800">
-    
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:LoginControlViewModel}">
+            <controls:LoginControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:ChangePasswordControlVIewModel}">
+            <controls:ChangePasswordControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:SignUpControlVIewModel}">
+            <controls:SignUpControl/>
+        </DataTemplate>
+    </Window.Resources>
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="20"/>
     </WindowChrome.WindowChrome>
-    <Grid>
+    <Grid Margin="7 0 7 7">
         <Grid.RowDefinitions>
             <RowDefinition Height = "Auto"/>
             <RowDefinition/>
@@ -24,10 +37,18 @@
         <controls:TitleBar />
 
         <!-- Body -->
-        <StackPanel Background="Blue" Grid.Row="1"/>
-
-        <!-- Footer -->
-        <StackPanel Background="Green" Height="20" Grid.Row="2"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                <Button Content="로그인" Command="{Binding ToLoginCommand}"/>
+                <Button Content="비밀번호변경" Command="{Binding ToChangePasswordCommand}"/>
+                <Button Content="회원가입" Command="{Binding ToSignUpCommand}"/>
+            </StackPanel>
+        </Grid>
         
     </Grid>
 </Window>

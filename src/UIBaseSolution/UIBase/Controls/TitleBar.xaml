@@ -27,7 +27,7 @@
     </UserControl.Resources>
     
     <DockPanel x:Name="pnlTitle"
-               Background="{StaticResource ColorPrimary}"
+               Background="{StaticResource ColorSecondary}"
                LastChildFill="False">
         <Button x:Name="btnExit"
                 Margin="{Binding WinState, ElementName=root, Converter={StaticResource WindowStateMarginConverter}, ConverterParameter=Exit}">
