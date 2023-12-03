@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:UIBase.Controls" 
              xmlns:fa6="http://schemas.fontawesome.com/icons/svg"
              xmlns:system="clr-namespace:System;assembly=netstandard"
+        xmlns:controls="clr-namespace:WpfLIb.Controls;assembly=WpfLIb"
              mc:Ignorable="d" 
              Background="{StaticResource ColorPrimary}"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -33,7 +34,10 @@
                         PrimaryColor="White" />
         <!--Body-->
         <StackPanel Grid.Row="1" Margin="30 10">
-            <ComboBox MaxWidth="400" Height="{StaticResource ElementHeight}"/>
+            <!--<ComboBox MaxWidth="400" Height="{StaticResource ElementHeight}"/>-->
+            <controls:TextBoxControl MaxWidth="400" Background="White"
+                                     Height="{StaticResource ElementHeight}"
+                                     Placeholder="이메일을 입력하세요."/>
             <PasswordBox MaxWidth="400" Height="{StaticResource ElementHeight}"/>
             <Button Content="로그인" MaxWidth="400"  Height="{StaticResource ElementHeight}"
                     Margin="0 20 0 0"/>
