@@ -37,7 +37,8 @@
             <!--<ComboBox MaxWidth="400" Height="{StaticResource ElementHeight}"/>-->
             <controls:TextBoxControl MaxWidth="400" Background="White"
                                      Height="{StaticResource ElementHeight}"
-                                     Placeholder="이메일을 입력하세요."/>
+                                     Placeholder="이메일을 입력하세요."
+                                     Validating="True"/>
             <PasswordBox MaxWidth="400" Height="{StaticResource ElementHeight}"/>
             <Button Content="로그인" MaxWidth="400"  Height="{StaticResource ElementHeight}"
                     Margin="0 20 0 0"/>

@@ -26,6 +26,13 @@ namespace WpfLIb.Controls
         }
 
         #region Public Properties
+
+        public bool Validating
+        {
+            get { return (bool)GetValue(ValidatingProperty); }
+            set { SetValue(ValidatingProperty, value); }
+        }
+
         public new Brush BorderBrush
         {
             get { return (Brush)GetValue(BorderBrushProperty); }
@@ -78,6 +85,10 @@ namespace WpfLIb.Controls
         // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(TextBoxControl), new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        // Using a DependencyProperty as the backing store for Validating.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty ValidatingProperty =
+            DependencyProperty.Register("Validating", typeof(bool), typeof(TextBoxControl), new UIPropertyMetadata(false));
         #endregion
     }
 }
